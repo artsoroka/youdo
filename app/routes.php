@@ -15,3 +15,19 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/user', function(){
+	return "users list "; 
+});
+
+Route::get('/user/{user_id}', function($user_id){
+	
+	$validation = Validator::make(
+		array('user_id' => $user_id),
+		array('user_id' => 'required|integer')
+	); 
+
+	if($validation->fails()) return "user id is incorrect "; 
+	
+	return  "are you looking for user with id " . $user_id;  
+});
