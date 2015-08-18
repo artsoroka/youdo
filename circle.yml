@@ -17,5 +17,5 @@ deployment:
   staging: 
     branch: master
     commands: 
-      - ssh deploy@main-srv 'cd youdo && git fetch --all && git reset --hard origin/master'    
+      - ssh deploy@main-srv 'cd youdo && git fetch --all && git reset --hard origin/master && pm2 restart nodeapp/app/app.js'     
 		
