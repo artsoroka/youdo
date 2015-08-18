@@ -1,0 +1,21 @@
+machine: 
+  node:
+    version: 
+      v0.10.33
+  hosts: 
+    main-srv: 188.166.44.244
+
+dependencies:
+  pre:
+    - npm install -g jasmine-node
+
+test: 
+  override: 
+    - jasmine-node ./nodeapp/test/ 
+
+deployment: 
+  staging: 
+    branch: master
+    commands: 
+      - ssh deploy@main-srv 'cd youdo && git fetch --all && git reset --hard origin/master'    
+		
