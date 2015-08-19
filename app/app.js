@@ -1,8 +1,13 @@
 var express = require('express'); 
 var app     = express(); 
 
+app.use(express.static(__dirname + '/../public')); 
+
+app.set('view engine', 'ejs'); 
+app.set('views', __dirname + '/views'); 
+
 app.get('/', function(req,res){
-  res.send('Welcome to Youdo implemented with node.js ');
+  res.render('mainpage'); 
 }); 
 
 app.listen(8080); 
