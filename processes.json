@@ -1,0 +1,16 @@
+{
+  "apps" : [{
+    "name"        : "youdo-app",
+    "script"      : "app/app.js",
+    "args"        : [],
+    "watch"       : true,
+    "node_args"   : "",
+    "merge_logs"  : true,
+    "env": {
+        "NODE_ENV": "production",
+        "AWESOME_SERVICE_API_TOKEN": "xxx"
+    },
+    "error_file" : "../logs/youdo-err.log",
+    "out_file"   : "../logs/youdo-out.log"
+  }]
+}
