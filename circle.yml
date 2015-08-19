@@ -18,4 +18,4 @@ deployment:
     branch: master
     commands: 
       - ssh deploy@main-srv 'cd youdo && git fetch --all && git reset --hard origin/master'
-      - ssh deploy@main-srv 'cd youdo && npm install && pm2 restart processes.json' 
+      - ssh deploy@main-srv 'cd youdo && npm install && pm2 delete all && pm2 start processes.json' 
