@@ -17,4 +17,5 @@ deployment:
   prod: 
     branch: master
     commands: 
-      - ssh deploy@main-srv 'cd youdo && git fetch --all && git reset --hard origin/master && npm install && pm2 restart nodeapp/app/app.js'
+      - ssh deploy@main-srv 'cd youdo && git fetch --all && git reset --hard origin/master'
+      - ssh deploy@main-srv 'cd youdo/nodeapp npm install && pm2 restart app/app.js'
