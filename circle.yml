@@ -8,6 +8,8 @@ machine:
 dependencies:
   pre:
     - npm install -g jasmine-node
+    - echo "create database youdo; grant all privileges on youdo.* to 'youdoadmin'@'%' identified by 'youdopassword'" | mysql -u root 
+    - mysql -u root youdo < ./sql_schema/users.sql  
 
 test: 
   override: 
