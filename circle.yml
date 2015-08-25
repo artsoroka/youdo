@@ -13,7 +13,7 @@ dependencies:
 
 test: 
   override: 
-    - jasmine-node ./test/ 
+    - jasmine-node --verbose --forceexit ./test/ 
 
 deployment: 
   prod: 
