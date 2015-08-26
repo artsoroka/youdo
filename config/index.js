@@ -3,8 +3,8 @@ module.exports = {
 		port: process.env.YOUDO_APP_PORT || 8080
 	},
 	session: {
-        name: 'webmed', 
-        key:  'webmed', 
+        name: 'youdo', 
+        key:  'youdo', 
         cookie: {
             httpOnly: false, 
             secure: false
