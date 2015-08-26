@@ -2,13 +2,15 @@ var db   = require('../lib/mysql');
 
 var User = function(){}; 
 
+User.prototype.noUserFound = 'no user found'; 
+
 User.prototype.login = function(login, password, callback){
     if( ! login || ! login.length ) return callback("login can't be empty"); 
     if( ! password || ! password.length ) return callback("password can't be empty"); 
     
     var loginFileld = ( login.match('@') ) ? 'email' : 'username'; 
-    
-    db.query('SELECT id FROM users WHERE ?? = ? AND password = ?', [
+    var self = this; 
+    db.query('SELECT id, username, user_type_id FROM users WHERE ?? = ? AND password = ?', [
             loginFileld, 
             login, 
             password
@@ -20,7 +22,7 @@ User.prototype.login = function(login, password, callback){
             
             if( ! user || ! user.length ){
                 console.log('no user found: ', login, password );
-                return callback('no user found'); 
+                return callback(self.noUserFound); 
             }
             
             callback(null, user[0]); 
