@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+          <h2>Task list </h2>
+          <% if(locals.tasks && locals.tasks.length) { %>
+            <ul>
+              <% tasks.forEach(function(task){ %>
+                <li><%= task.title %></li>
+              <% })%>
+            </ul>
+          <% } else { %>
+            no tasks
+          <% } %>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+  </body>
+</html>
